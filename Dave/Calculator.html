@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <meta charset="utf-8">
+  <style>
+    * {
+      font-family: sans-serif;
+      color: #ddd;
+    }
+
+    table {
+      height: 350px;
+      margin:  0 auto;
+    }
+
+    table, table td {
+      border: 2px solid #aaa;
+      border-collapse: collapse;
+    }
+
+    td {
+      padding: 7px;
+      width: 20%;
+      height: 12.5%;
+      text-align: center;
+      background: #004;
+      cursor: pointer;
+    }
+
+    .n {
+      background: #400;
+    }
+
+    .display {
+      background: #111;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <tr>
+      <td class="display" colspan="5" id="display"></td>
+    </tr>
+    <tr>
+      <td class="display" colspan="5" id="result"></td>
+    </tr>
+    <tr>
+      <td class="" onclick="Go(this.innerHTML)">x<sup>2</sup></td>
+      <td class="" onclick="Go(this.innerHTML)">x<sup>y</sup></td>
+      <td class="" onclick="Save()">MS</td>
+      <td class="" onclick="Remember()">MR</td>
+      <td class="" onclick="Clear()">C</td>
+    </tr>
+    <tr>
+      <td class="" onclick="Go('Sqrt')">Sqrt</td>
+      <td class="" onclick="Go(this.innerHTML)"><sup>y</sup>Sqrt</td>
+      <td class="" onclick="Go('PI')">&pi;</td>
+      <td class="" onclick="Go(this.innerHTML)">e</td>
+      <td class="" onclick="Go(this.innerHTML)">/</td>
+    </tr>
+    <tr>
+      <td class="" onclick="Go(this.innerHTML)">sin</td>
+      <td class="n" onclick="Go(this.innerHTML)">7</td>
+      <td class="n" onclick="Go(this.innerHTML)">8</td>
+      <td class="n" onclick="Go(this.innerHTML)">9</td>
+      <td class="" onclick="Go(this.innerHTML)">x</td>
+    </tr>
+    <tr>
+      <td class="" onclick="Go(this.innerHTML)">cos</td>
+      <td class="n" onclick="Go(this.innerHTML)">4</td>
+      <td class="n" onclick="Go(this.innerHTML)">5</td>
+      <td class="n" onclick="Go(this.innerHTML)">6</td>
+      <td class="" onclick="Go(this.innerHTML)">-</td>
+    </tr>
+    <tr>
+      <td class="" onclick="Go(this.innerHTML)">tan</td>
+      <td class="n" onclick="Go(this.innerHTML)">1</td>
+      <td class="n" onclick="Go(this.innerHTML)">2</td>
+      <td class="n" onclick="Go(this.innerHTML)">3</td>
+      <td class="" onclick="Go(this.innerHTML)">+</td>
+    </tr>
+    <tr>
+      <td class="" onclick="Go(this.innerHTML)">(</td>
+      <td class="" onclick="Go(this.innerHTML)">)</td>
+      <td class="n" onclick="Go(this.innerHTML)">0</td>
+      <td class="" onclick="Go(this.innerHTML)">.</td>
+      <td class="" onclick="Get()">=</td>
+    </tr>
+  </table>
+<script>
+  var memory;
+  var display = "";
+  var calc = "";
+  var showElem = document.getElementById('display').innerHTML;
+  var resElem = document.getElementById('result').innerHTML;
+
+  function Go(action) {
+    console.log(action);
+    switch(action) {
+      case "0": {
+        display+="0"; calc+="0"; break;
+      }
+      case "1": {
+        display+="1"; calc+="1"; break;
+      }
+      case "2": {
+        display+="2"; calc+="2"; break;
+      }
+      case "3": {
+        display+="3"; calc+="3"; break;
+      }
+      case "4": {
+        display+="4"; calc+="4"; break;
+      }
+      case "5": {
+        display+="5"; calc+="5"; break;
+      }
+      case "6": {
+        display+="6"; calc+="6"; break;
+      }
+      case "7": {
+        display+="7"; calc+="7"; break;
+      }
+      case "8": {
+        display+="8"; calc+="8"; break;
+      }
+      case "9": {
+        display+="9"; calc+="9"; break;
+      }  
+      case ".": {
+        display+="."; calc+="."; break;
+      }    
+      case "+": {
+        display+=" + "; calc+="+"; break;
+      }      
+      case "-": {
+        display+=" - "; calc+="-"; break;
+      }      
+      case "x": {
+        display+=" x "; calc+="*"; break;
+      }      
+      case "/": {
+        display+=" / "; calc+="/"; break;
+      }      
+      case "(": {
+        display+="("; calc+="("; break;
+      }      
+      case ")": {
+        display+=")"; calc+=")"; break;
+      }
+      case "PI": {
+        display+="&pi;"; calc+="Math.PI"; break;
+      }
+      case "e": {
+        display+="e"; calc+="Math.E"; break;
+      }
+      case "Sqrt": {
+        display+="&radic;("; calc+="Math.sqrt("; break;
+      }
+      case "sin": {
+        display+="sin("; calc+="Math.sin("; break;
+      }
+      case "cos": {
+        display+="cos("; calc+="Math.cos("; break;
+      }
+      case "tan": {
+        display+="tan("; calc+="Math.tan("; break;
+      }
+    }
+    document.getElementById('display').innerHTML = display;
+  }
+
+  function Get() {
+    var result = eval(calc);
+    document.getElementById('result').innerHTML = result;
+  }
+
+  function Clear() {
+    document.getElementById('display').innerHTML = "";
+    document.getElementById('result').innerHTML = "";
+    calc = "";
+    display= "";
+  }
+
+  function Save() {
+    memory = document.getElementById('result').innerHTML;
+  }
+
+  function Remember() {
+    display+=memory;
+    calc+=memory;
+    document.getElementById('display').innerHTML = display;
+  }
+
+  function toRad(x) {
+    return x*Math.PI/180;
+  }
+</script>
+</body>
+</html>
