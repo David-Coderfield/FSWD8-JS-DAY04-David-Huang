@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Basic 1</title>
+</head>
+<body>
+	Input your birthdate in the console like this: Age(birthday)
+	<script>
+		function Age(bdate) {
+			var now = new Date();
+			var bday = new Date(bdate);
+			console.log("bday: " + bday); //1988 --> 1970
+			var yearNow = now.getFullYear();
+			var yearBday = bday.getFullYear();
+			console.log("yearBday: " + yearBday);
+			console.log("yearNow: " + yearNow);
+			age = yearNow - yearBday;
+			// age = now.getFullYear() - yearBday();
+			return age;
+		}
+	</script>
+</body>
+</html>
