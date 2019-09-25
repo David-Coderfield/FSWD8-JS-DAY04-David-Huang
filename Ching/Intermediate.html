@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script>
+	
+
+   var HotelConstructor() = {
+   name: 'Hilton',
+   rooms: 40,
+   booked: 25,
+   hotelTypes: ['business', 'vacation', 'mixed'],
+   checkAvailability: function() {
+       return this.rooms - this.booked;
+   };
+}
+
+
+
+function availblity ()
+{
+    var roomAvail = Math.floor(Math.random() * 10+1);
+	var roomabooked = prompt("how many rooms would you like to stay");
+}
+
+
+var hiltonHotel = new HotelConstructor('Hilton', '9');
+var mariottHotel = new HotelConstructor('Marriott', '8');
+var holidayInnHotel = new HotelConstructor('Holiday Inn', '10');
+
+</script>
+</body>
+</html>

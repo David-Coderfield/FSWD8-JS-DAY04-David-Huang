@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script>
+	
+	/*Basic exercise 1 | Age*/
+
+function calculate_age(dob) { 
+    var diff_ms = Date.now() - dob.getTime();
+    var age_dt = new Date(diff_ms); 
+  
+    return Math.abs(age_dt.getUTCFullYear() - 1970);
+}
+
+console.log(calculate_age(new Date(1982, 11, 4)));
+
+	
+
+/*Basic exercise 2 | Truncate*/
+
+
+function myFunction() {
+  var str = "I am a hero from World of Warcraft";
+  var res = str.substring(0, 11);
+  document.write(res);
+}
+
+myFunction();
+document.write("<br>");
+/*Create a function that accepts two parameters. 1st parameter is a string and the 2nd is a number of characters that should be shortened by cutting off the string from left to right.
+
+e.g. If we pass the following arguments in the function 1st argument = "I am a hero from World of Warcraft" and 2nd argument = "12", we should get the string "I am a hero"
+
+
+
+Basic exercise 3 | Personal information
+Write a function that will print your personal information - name, surname, age and short description using the return statement. Those values are defined as parameters to the function. All information should be passed as arguments, when the function is called.
+Expected outcome: Hi I am John Doe I am 25 years old and I am a future programmer.
+*/
+
+
+   function selfin(name, surname , age, job)
+{
+	var selfin = "Hi I am  " + name + surname +" I am "+ age + " years and I am a  " + job  ;
+	document.write (selfin);
+	return selfin;
+}
+
+selfin('james', 'Bond', 50, 'secretagent');
+
+</script>
+</body>
+</html>
